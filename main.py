@@ -99,6 +99,7 @@ def plot_hist(total_wealth_df):
     plt.xlabel('Government spending as a percentage of total national wealth')
     plt.ylabel('Frequency')
 
+    sns.despine()
     plt.tight_layout()
     plt.savefig('out/histogram.png')
     plt.close()
@@ -107,9 +108,10 @@ def plot_bar(sorted_df):
     _, ax = plt.subplots(figsize=(10, 40))
 
     sns.barplot(data=sorted_df, x='percent', y='country_name')
-
     plt.xlabel('Government spending as a percentage of total national wealth')
     plt.title('Government spending as a percentage of total national wealth')
+
+    sns.despine()
     plt.tight_layout()
     plt.savefig('out/bar.png')
     plt.close()
@@ -139,7 +141,7 @@ def plot_map(merged):
             "label": "No data",
         }
     )
-    sns.despine(ax=ax, left=True, bottom=True)
+    ax.set_axis_off()
     plt.tight_layout()
     plt.savefig('out/map.png')
     plt.close()
@@ -157,7 +159,7 @@ def plot_year(merged):
             "label": "No data",
         }
     )
-    sns.despine(ax=ax, left=True, bottom=True)
+    ax.set_axis_off()
     plt.tight_layout()
     plt.savefig('out/year.png')
     plt.close()
